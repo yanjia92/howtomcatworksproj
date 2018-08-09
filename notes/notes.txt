@@ -1,0 +1,30 @@
+How Tomcat works笔记
+===================
+
+
+chap1
+=====
+http服务器初步 提供静态资源的访问
+需要三个类：
+HttpServer Request Response
+
+
+chap2
+=====
+servlet容器初步
+
+1. Servlet接口
+void init(ServletConfig config); // 由servlet容器调用
+void service(ServletRequest request, ServletResponse response);
+void destroy();
+ServletConfig getServletConfig();
+String getServletInfo();
+
+需要的类：
+HttpServer1 Request Response
+StaticResourceProcessor ServletProcessor1 Constants
+
+HttpServer1职责：
+监听端口生成socket
+生成request response对象
+根据请求资源是否为静态资源，将request response对象分发给 StaticResourceProcessor 和 ServletProcessor1
